@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    int long long a;
-
+    int a;
     cin >> a;
-    cout << (a/10 * (a/10 + 1) * 100) + 25;
+    cout << a << 9 << 9 - a;
+    return 0;
 }

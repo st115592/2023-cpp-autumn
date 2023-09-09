@@ -1,12 +1,9 @@
 #include <iostream>
-
 using namespace std;
+int main(){
+    int b;
+    cin >> b;
+    cout << ((1 + b) * b) / 2;
 
-int main()
-{
-    int a;
-
-    cin >> a;
-    cout << a/10 * (a/10 + 1) << "25";
     return 0;
 }
