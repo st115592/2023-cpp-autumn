@@ -399,4 +399,4 @@ FodyWeavers.xsd
 
 *.layout
 *.depend
-
+*.cbp
