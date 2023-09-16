@@ -1,16 +1,18 @@
 #include <iostream>
-using namespace std;
 main()
 {
-    int a,b,c,d;
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    int d = 0;
 
-    cin>> a >> b;
+    std::cin>> a >> b;
 
     c = a * b % 109;
 
     d = ( c + 109 ) % 109 + 1;
 
-    cout << d;
+    std::cout << d;
 
     return 0;
 }
