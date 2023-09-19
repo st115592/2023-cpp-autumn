@@ -1,6 +1,6 @@
 #include <iostream>
-main()
-{
+
+int main(){
     int a = 0;
     int b = 0;
     int c = 0;
@@ -13,6 +13,5 @@ main()
     d = ( c + 109 ) % 109 + 1;
 
     std::cout << d;
-
     return 0;
 }
