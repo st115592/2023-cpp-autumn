@@ -6,7 +6,8 @@ int main(){
     int c = 0;
     int d = 0;
 
-    std::cin>> a >> b;
+    std::cin >> a;
+    std::cin >> b;
 
     c = a * b % 109;
 
