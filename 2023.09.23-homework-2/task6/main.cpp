@@ -6,13 +6,10 @@ int main()
     int m = 0;
     int n = 0;
     int t = 0;
-
     std::cin >> k;
     std::cin >> m;
     std::cin >> n;
-
     t = (n / k) * 2 * m;
-
     if ((n % k > 0) && (k / 2 < n % k)) {
         t += m * 2;
     }
