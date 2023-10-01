@@ -2,7 +2,7 @@
 
 int main()
 {
- int n = 0;
+    int n = 0;
     int a = 1;
     int k = 0;
     std::cin >> n;
