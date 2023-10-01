@@ -17,7 +17,7 @@ int main()
     }
     if (double(sqrt(x)) == int(sqrt(x)))
         {
-            std::cout << k -1;
+            std::cout << k - 1;
         }
     else
         {
