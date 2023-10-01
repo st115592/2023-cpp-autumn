@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+
 
 int main()
 {
@@ -8,21 +8,13 @@ int main()
     int k = 0;
 
     std::cin >> x;
-    for (i = 1; i <= sqrt(x) ;++i)
+    for (i = 1; i <= x ;++i)
     {
         if (x % i==0)
         {
-            k += 2;
+            k++;
         }
     }
-    if (double(sqrt(x)) == int(sqrt(x)))
-        {
-            std::cout << k - 1;
-        }
-    else
-        {
-            std::cout << k;
-        }
-
+    std::cout << k;
     return 0;
 }
