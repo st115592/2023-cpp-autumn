@@ -7,20 +7,18 @@ int main(int, char**)
     std::cin >> n;
     int* p = (int*)malloc(sizeof(int) * n);
 
-    for (int i = 0; i < n; i++)
-        {
-            std::cin >>*(p + i);
-        }
-
+    for (int i = 0; i < n; ++i)
+    {
+        std::cin >>*(p + i);
+    }
     int c = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
+    {
+        if(*(p + i) > 0)
         {
-            if(*(p + i) > 0)
-            {
-                c += 1;
-            }
+            c += 1;
         }
-
+    }
     std::cout << c;
 
     free(p);
