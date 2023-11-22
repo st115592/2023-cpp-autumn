@@ -2,7 +2,7 @@
 #include<cstdlib>
 #include<iostream>
 
-#include "header.h"
+
 
 void printArray(int* A, int len)
 {

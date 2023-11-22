@@ -2,7 +2,7 @@
 #include<cstdlib>
 #include<iostream>
 
-#include"header.h"
+#include"functions.cpp"
 
 int main(int argc, char* argv[])
 {
