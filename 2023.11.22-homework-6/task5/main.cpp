@@ -21,7 +21,7 @@ int main()
         {
             hanoi(n, 1, 3);
             --n;
-		}
+        }
 		else
 		{
 			hanoi(n, 1, 2);
