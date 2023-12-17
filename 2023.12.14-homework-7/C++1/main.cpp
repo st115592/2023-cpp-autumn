@@ -24,7 +24,7 @@ void WordsArray(std::string filename, std::string* WordsArr)
 	while (!fin.eof())
 	{
 		fin >> WordsArr[i];
-		i++;
+		++i;
 	}
 	fin.close();
 }
@@ -38,9 +38,9 @@ bool isSyntax(char c)
 
 void Syntax(std::string* WordsArr, int n)
 {
-	for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
 	{
-		for (int j = 0; j < WordsArr[i].length(); j++)
+		for (int j = 0; j < WordsArr[i].length(); ++j)
 		{
 			if (isSyntax(WordsArr[i][j]))
 			{
@@ -49,19 +49,19 @@ void Syntax(std::string* WordsArr, int n)
 		}
 	}
 }
-
 std::string MostCommonWord(std::string* WordsArr, int n)
 {
 	std::string common = WordsArr[0];
 	int repeatCount = 0;
-	for (int i = 0; i < n; i++)
+
+	for (int i = 0; i < n; ++i)
 	{
 		int repeat = 0;
-		for (int j = i; j < n; j++)
+		for (int j = i; j < n; ++j)
 		{
 			if (WordsArr[i] == WordsArr[j])
 			{
-				repeat++;
+				++repeat;
 			}
 		}
 		if (repeat > repeatCount)
