@@ -23,25 +23,62 @@ void hanoy(int count, int from = 1, int to = 3)
 	hanoy(count - 1, res, to);
 }
 
+void swap(int& a, int& b)
+{
+	int k = 0;
+	k = a;
+	a = b;
+	b = k;
+}
+
+int top(int a)
+{
+	if (n[a] > 0)
+	{
+		return d[a][n[a] - 1];
+	}
+	else
+	{
+		return 11;
+	}
+}
+
 void sort(int from = 1, int to = 3)
 {
-    int res = 6 - from - to;
-    shift(from, to);
+	int res = 6 - from - to;
 
-    while(d[from][n[from] - 1] < d[to][n[to] - 1])
-    {
-        shift(from, to);
-    }
+	while (n[from] > 0)
+	{
+		while (top(to) < top(from))
+		{
+		    int count = 0;
 
-    if(d[from][n[from] - 1] < d[to][n[1]])
-    {
-        hanoy(n[to] - 1, 3, 2);
-    }
-    else
-    {
-        hanoy(n[to], 3, 2);
-    }
+			for (int i = 0; i < n[res]; ++i)
+			{
+				if (d[res][i] > top(to))
+				{
+					++count;
+				}
+			}
+			hanoy(n[res] - count, res, to);
+			swap(res, to);
+		}
+		shift(from, to);
+	}
 
+	while (n[to] > 0)
+	{
+		int count = 0;
+		for (int i = 0; i < n[res]; ++i)
+		{
+			if (d[res][i] > top(to))
+			{
+				count++;
+			}
+		}
+		hanoy(n[res] - count, res, to);
+		swap(res, to);
+	}
 }
 
 int main(int argc, char* argv[])
@@ -52,5 +89,6 @@ int main(int argc, char* argv[])
 		std::cin >> d[1][i];
 	}
 	sort();
+
 	return EXIT_SUCCESS;
 }
