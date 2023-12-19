@@ -1,43 +1,30 @@
 #include<iostream>
 
-void hanoi(int n, int from, int to)
+void hanoy(int count, int from = 1, int to = 3)
 {
-	if (n > 0)
+	if (count == 0)
 	{
-		int res = 6 - from - to;
-		hanoi(n - 1, from, res);
-		std::cout<< n << " " << from << " " << to << std::endl;
-		hanoi(n - 1, res, to);
+		return;
 	}
+
+	int res = 6 - from - to;
+
+	hanoy(count - 1, from, res);
+	std::cout << count << " " << from << " " << to << std::endl;
+	hanoy(count - 1, res, to);
 }
-int main()
+
+int main(int argc, char* argv[])
 {
 	int n = 0;
 	std::cin >> n;
-
-	if (n >= 2)
-    {
-        if (n % 2 == 0)
-        {
-            hanoi(n, 1, 3);
-            --n;
-        }
-		else
-		{
-			hanoi(n, 1, 2);
-			--n;
-			hanoi(n, 2, 3);
-			--n;
-		}
-		while (n > 0)
-		{
-			hanoi(n, n % 2 + 2, (n + 1) % 2 + 2);
-			--n;
-		}
-    }
-	else if (n == 1)
+	int from = 1;
+	int to = 0;
+	for (int i = n; i > 0; --i)
 	{
-		hanoi(n, 1, 2);
+		to = (i % 2 == 0 ? 3 : 2);
+		hanoy(i, from, to);
+		from = to;
 	}
-	return EXIT_SUCCESS;
+	return 0;
 }
