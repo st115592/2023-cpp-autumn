@@ -29,7 +29,7 @@ public:
 	int roadsCount();
 	int vertexCount();
 	int power(int vertex);
-	void PrintAdjencyList(int n);
+	bool RegulatoryGraph();
 
 private:
 	void init();
@@ -46,22 +46,37 @@ private:
 	int _edges;
 	int** _matrix;
 	SEdge* _edge;
-	int* DegVertex();
 };
 
-int main(int argc, int argv[])
+int main(int argc, char* argv[])
 {
-
 	int v = 0;
 	std::cin >> v;
-	int e = 0;
-	std::cin >> e;
-	CGraph g(v, e);
+	CGraph g;
+	g.ReadMatrix(v, std::cin);
 
-	g.ReadEdges(e, std::cin);
-	g.PrintAdjencyList(v);
+    if(g.RegulatoryGraph())
+    {
+        std::cout << "YES" << std::endl;
+    }
+    else
+    {
+        std::cout << "NO" << std::endl;
+    }
 
 	return EXIT_SUCCESS;
+}
+
+bool CGraph::RegulatoryGraph()
+{
+    for (int i = 0; i < _vertexes; ++i)
+	{
+		if (power(i) != power(0))
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
 CGraph::CGraph()
@@ -76,28 +91,6 @@ CGraph::CGraph(int vertexes, int edges)
 CGraph::~CGraph()
 {
 	dispose();
-}
-
-void CGraph::PrintAdjencyList(int n)
-{
-	std::cout << n << std::endl;
-	for (int i = 1; i <= n; ++i)
-	{
-		int count = 0;
-		for (int j = 1; j <= n; ++j)
-		{
-			count += _matrix[i][j];
-		}
-		std::cout << count << " ";
-		for (int j = 1; j <= n; ++j)
-		{
-			if (_matrix[i][j] == 1)
-			{
-				std::cout << j << " ";
-			}
-		}
-		std::cout << std::endl;
-	}
 }
 
 void CGraph::PrintMatrix()
@@ -201,7 +194,7 @@ int CGraph::power(int vertex)
 	{
 		r += (_matrix[i][vertex] != 0);
 	}
-	return r;
+	return r / 2;
 }
 
 void CGraph::init()
